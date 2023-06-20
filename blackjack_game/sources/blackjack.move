@@ -16,7 +16,7 @@ module blackjack_game::blackjack {
     money_box: MoneyBox,
     is_playing: u64,
   }
-  
+
   struct Hand has key, store {
     id: UID,
     account: address,
@@ -37,9 +37,10 @@ module blackjack_game::blackjack {
     sequence_number: u64,
     card_deck_id: ID,
   }
+  // TODO : sui -> casino chips
   struct MoneyBox has key, store {
     id: UID,
-    balance: Balance<SUI>,
+    stake: vector<Coin<SUI>>, 
     game_id: ID,
   }   
   fun init(ctx: &mut TxContext) {
