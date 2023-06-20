@@ -10,14 +10,14 @@ module blackjack_game::blackjack {
   
   struct GameTable has key, store {
     id: UID,
-    player_game_place: GamePlace,
-    dealer_game_place: GamePlace,
+    player_hand: Hand,
+    dealer_hand: Hand,
     card_deck: CardDeck,
     money_box: MoneyBox,
     is_playing: u64,
   }
-  // TODO : check the struct name, GamePlace. is it natural?
-  struct GamePlace has key, store {
+  
+  struct Hand has key, store {
     id: UID,
     account: address,
     cards: vector<Card>,
